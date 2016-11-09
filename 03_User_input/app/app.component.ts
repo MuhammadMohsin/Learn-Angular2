@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
             <button (click)="addFunc()">Click here to add 2</button>
             <br/>
             change value:  
-            <input (keyup)="changeVal($event)"/>
+            <input #newVal (keyup)="changeVal($event, newVal)"/>
             <br/>
             two way binding sample:
             <br/>
@@ -27,8 +27,9 @@ export class AppComponent {
     this.currentVal += 2;
   }
 
-  changeVal(event) {
-    this.currentVal = event.target.value;
+  changeVal(event,newValue) {
+    // this.currentVal = event.target.value;
+    this.currentVal = Number(newValue.value);
   }
 
 }
